@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Food Order Prediction</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1><i class="fas fa-utensils"></i> Online Food Order Prediction</h1>
+      <p class="subtitle">Predict if a customer will order again using AI</p>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" onclick="openTab('predict')">Predict</button>
+      <button class="tab" onclick="openTab('insights')">Insights</button>
+    </div>
+
+    <!-- Prediction Tab -->
+    <div id="predict" class="tab-content active">
+      <h2>Customer Details</h2>
+      <form id="predictionForm">
+        <div class="form-group">
+          <label>Age</label>
+          <input type="number" id="age" min="18" max="100" required>
+        </div>
+
+        <div class="form-group">
+          <label>Gender</label>
+          <select id="gender" required>
+            <option value="">Select</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Marital Status</label>
+          <select id="marital" required>
+            <option value="">Select</option>
+            <option value="2">Married</option>
+            <option value="1">Single</option>
+            <option value="0">Prefer not to say</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Occupation</label>
+          <select id="occupation" required>
+            <option value="">Select</option>
+            <option value="1">Student</option>
+            <option value="2">Employee</option>
+            <option value="3">Self Employed</option>
+            <option value="4">Housewife</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Monthly Income</label>
+          <select id="income" required>
+            <option value="">Select</option>
+            <option value="0">No Income</option>
+            <option value="10000">Below ₹10,000</option>
+            <option value="25000">₹10,001 – ₹25,000</option>
+            <option value="50000">₹25,001 – ₹50,000</option>
+            <option value="70000">More than ₹50,000</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Education</label>
+          <select id="education" required>
+            <option value="">Select</option>
+            <option value="1">Graduate</option>
+            <option value="2">Post Graduate</option>
+            <option value="3">Ph.D</option>
+            <option value="4">School</option>
+            <option value="5">Uneducated</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Family Size</label>
+          <input type="number" id="family" min="1" max="10" required>
+        </div>
+
+        <div class="form-group">
+          <label>Pin Code</label>
+          <input type="number" id="pincode" required>
+        </div>
+
+        <div class="form-group">
+          <label>Last Feedback</label>
+          <select id="feedback" required>
+            <option value="">Select</option>
+            <option value="1">Positive</option>
+            <option value="0">Negative</option>
+          </select>
+        </div>
+
+        <button type="submit">Predict Now</button>
+      </form>
+
+      <div id="result" class="result"></div>
+    </div>
+
+    <!-- Insights Tab -->
+    <div id="insights" class="tab-content">
+      <h2>Data Insights</h2>
+      <div class="visualization"><div id="agePlot"></div></div>
+      <div class="visualization"><div id="genderPlot"></div></div>
+      <div class="visualization"><div id="maritalPlot"></div></div>
+    </div>
+
+    <footer>
+      <p>© 2025 Online Food Order Prediction | Built with Flask & Machine Learning</p>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
